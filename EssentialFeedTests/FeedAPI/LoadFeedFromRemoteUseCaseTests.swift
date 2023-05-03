@@ -34,7 +34,7 @@ private class HTTPClientSpy: HTTPClient {
 
 }
 
-class RemoteFeedLoaderTests: XCTestCase {
+class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
