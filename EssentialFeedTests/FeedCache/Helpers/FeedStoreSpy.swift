@@ -1,0 +1,47 @@
+//
+//  FeedStoreSpy.swift
+//  EssentialFeedTests
+//
+//  Created by Fattah, Iram on 5/7/23.
+//
+
+import Foundation
+import EssentialFeed
+
+class FeedStoreSpy: FeedStore {
+     enum RecievedMessage: Equatable {
+         case deleteCacheFeed
+         case insert([LocalFeedImage], Date)
+     }
+
+     private(set) var recievedMessages = [RecievedMessage]()
+
+     private var deletionCompletions = [DeletionCompletion]()
+     private var insertionCompletions = [InsertionCompletion]()
+
+     func deleteCachedFeed(completion: @escaping DeletionCompletion) {
+         deletionCompletions.append(completion)
+         recievedMessages.append(.deleteCacheFeed)
+     }
+
+     func completeDeletion(with error: Error, at index: Int = 0) {
+         deletionCompletions[index](error)
+     }
+
+     func completeDeletionSuccessfully(at index: Int = 0) {
+         deletionCompletions[index](nil)
+     }
+
+     func completeInsertion(with error: Error, at index: Int = 0) {
+         insertionCompletions[index](error)
+     }
+
+     func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
+         insertionCompletions.append(completion)
+         recievedMessages.append(.insert(feed, timestamp))
+     }
+
+     func completeInsertionSuccessfully(at index: Int = 0) {
+         insertionCompletions[index](nil)
+     }
+ }
