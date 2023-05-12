@@ -140,7 +140,6 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
 
 
 
-
     // MARK: Helpers
 
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedLoader, store: FeedStoreSpy) {
@@ -160,8 +159,8 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
                 XCTAssertEqual(recievedImages, expectedImages, file: file, line: line)
             case let (.failure(recievedError as NSError), .failure(expectedError as NSError)):
                 XCTAssertEqual(recievedError, expectedError, file: file, line: line)
-        default:
-            XCTFail("Expected result \(expectedResult) got \(recievedResult) instead")
+            default:
+                XCTFail("Expected result \(expectedResult) got \(recievedResult) instead")
             }
             exp.fulfill()
         }
@@ -169,33 +168,4 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
 
-    private func anyNSError() -> NSError {
-       return NSError(domain: "any Error", code: 0)
-    }
-    private func anyURL() -> URL {
-        return URL(string: "http://any-url.com")!
-    }
-
-    private func uniqueImage() -> FeedImage {
-        return FeedImage(id: UUID(), description: "any", location: "any", url: anyURL())
-    }
-
-    private func uniqueImageFeed() -> (models: [FeedImage], local: [LocalFeedImage]) {
-        let feed = [uniqueImage(), uniqueImage()]
-        let localFeed = feed.map { LocalFeedImage(id: $0.id, description: $0.description, location: $0.location, url: $0.url)}
-        return (feed, localFeed)
-    }
-
-}
-
-
-
-private extension Date {
-    func adding(days: Int) -> Date {
-        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
-    }
-
-    func adding(seconds: TimeInterval) -> Date {
-        return self + seconds
-    }
 }
