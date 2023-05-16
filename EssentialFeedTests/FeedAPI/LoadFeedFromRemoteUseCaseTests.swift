@@ -79,7 +79,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         }
     }
 
-    func test_load_delieversErrorOn200HTTPResponseWithInvalidJSON() {
+    func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON() {
         let (sut, client) = makeSUT()
         expect(sut, toCompleteWith: failure(.invalidData), when: {
             let invalidJSON = Data("Invalid JSON".utf8)
@@ -87,7 +87,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         })
     }
 
-    func test_load_delieversNoItemsOn200HTTPResponseWithEmptyJSONList() {
+    func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
         let (sut, client) = makeSUT()
         expect(sut, toCompleteWith: .success([]), when: {
             let emptyListJSON = makeItemsJSON([])
@@ -96,7 +96,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
     }
 
-    func test_load_delieversItemsOn200HTTPResponseWithJSONItems() {
+    func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
         let (sut, client) = makeSUT()
         let item1 = makeItem(id: UUID(),
                              imageURL: URL(string: "http://a-url.com")!)
@@ -118,7 +118,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
     }
 
-    func test_load_doesNotDelieverResultAfterSUTInstanceHasBeenDeallocated() {
+    func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
         let url = URL(string: "http://a-url.com")!
         let client = HTTPClientSpy()
         var sut: RemoteFeedLoader? = RemoteFeedLoader(url: url, client: client)
