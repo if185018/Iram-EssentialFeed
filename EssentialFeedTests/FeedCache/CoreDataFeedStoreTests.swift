@@ -69,8 +69,7 @@ class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     }
 
     func test_delete_deliversNoErrorOnNonEmptyCache() {
-        let noDeletePermissionURL = noDeletePermissionURL()
-        let sut = makeSUT(storeURL: noDeletePermissionURL)
+        let sut = makeSUT()
 
         assertThatDeleteDeliversNoErrorOnNonEmptyCache(on: sut)
     }
@@ -97,10 +96,6 @@ class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
         let sut = try! CoreDataFeedStore(storeURL: storeURL, bundle: storeBundle)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
-    }
-
-    private func noDeletePermissionURL() -> URL {
-      return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
     }
 
 }
