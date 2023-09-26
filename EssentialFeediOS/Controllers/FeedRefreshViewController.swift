@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol FeedRefreshViewControllerDelegate  {
+protocol FeedRefreshViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
