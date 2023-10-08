@@ -21,10 +21,12 @@ final class FeedImageCellController: FeedImageView {
     }
 
     func view(in tableView: UITableView) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedImageCell") as! FeedImageCell
-        self.cell = cell
+        cell = tableView.dequeueReusableCell()
         delegate.didRequestImage()
-        return cell
+        cell?.onReuse = { [weak self] in
+                    self?.releaseCellForReuse()
+                }
+        return cell!
     }
 
     func preload() {
@@ -41,6 +43,7 @@ final class FeedImageCellController: FeedImageView {
         cell?.locationLabel.text = viewModel.location
         cell?.descriptionLabel.text = viewModel.description
         cell?.feedImageView.image = viewModel.image
+        cell?.feedImageView.setImageAnimated(viewModel.image)
         cell?.feedImageContainer.isShimmering = viewModel.isLoading
         cell?.feedImageRetryButton.isHidden = !viewModel.shouldRetry
         cell?.onRetry = delegate.didRequestImage
@@ -50,3 +53,4 @@ final class FeedImageCellController: FeedImageView {
         cell = nil
     }
 }
+
