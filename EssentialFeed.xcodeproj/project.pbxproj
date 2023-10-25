@@ -11,9 +11,10 @@
 		F11A5F0D2AE99AAE00B6950F /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = F11A5F072AE964B000B6950F /* Feed.strings */; };
 		F11A5F0F2AE99D3700B6950F /* FeedViewControllerTests+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18F448C2AD5208900FD5510 /* FeedViewControllerTests+Localization.swift */; };
 		F11A5F102AE99D3F00B6950F /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18F44932AD523CB00FD5510 /* FeedLocalizationTests.swift */; };
+		F11A5F112AE99E2000B6950F /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12FD51E2AA63EB000829177 /* FeedImageViewModel.swift */; };
+		F11A5F122AE99E2400B6950F /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6D45E2ACB259E00ED146E /* FeedImagePresenter.swift */; };
 		F1286B2E2A0425A5006C6FE2 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1286B2D2A0425A5006C6FE2 /* LocalFeedLoader.swift */; };
 		F1286B302A04267E006C6FE2 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1286B2F2A04267E006C6FE2 /* FeedStore.swift */; };
-		F12FD51F2AA63EB000829177 /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12FD51E2AA63EB000829177 /* FeedImageViewModel.swift */; };
 		F135F60C2AE4B3C3006425EA /* FeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F135F60B2AE4B3C3006425EA /* FeedPresenterTests.swift */; };
 		F135F6102AE4B882006425EA /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F135F60F2AE4B882006425EA /* ErrorView.swift */; };
 		F135F6132AE4BA07006425EA /* UIRefreshControl+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F135F6122AE4BA07006425EA /* UIRefreshControl+Helper.swift */; };
@@ -77,7 +78,6 @@
 		F1F08F532A2525520097C0BC /* CoreDataFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F08F522A2525520097C0BC /* CoreDataFeedStoreTests.swift */; };
 		F1F08F552A25262A0097C0BC /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F08F542A25262A0097C0BC /* CoreDataFeedStore.swift */; };
 		F1F08F592A252EE20097C0BC /* FeedStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1F08F562A252EE20097C0BC /* FeedStore.xcdatamodeld */; };
-		F1F6D45F2ACB259E00ED146E /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6D45E2ACB259E00ED146E /* FeedImagePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -261,6 +261,8 @@
 			children = (
 				F11A5F072AE964B000B6950F /* Feed.strings */,
 				F11A5F0B2AE999B300B6950F /* FeedPresenter.swift */,
+				F1F6D45E2ACB259E00ED146E /* FeedImagePresenter.swift */,
+				F12FD51E2AA63EB000829177 /* FeedImageViewModel.swift */,
 			);
 			path = FeedPresentation;
 			sourceTree = "<group>";
@@ -281,8 +283,6 @@
 		F12FD51B2AA6380000829177 /* FeedPresentation */ = {
 			isa = PBXGroup;
 			children = (
-				F12FD51E2AA63EB000829177 /* FeedImageViewModel.swift */,
-				F1F6D45E2ACB259E00ED146E /* FeedImagePresenter.swift */,
 			);
 			path = FeedPresentation;
 			sourceTree = "<group>";
@@ -763,10 +763,8 @@
 				F1A22E482A92ED00009CA755 /* UIView+Shimmering.swift in Sources */,
 				F1B5C01C2AD7174F00FBE37D /* FeedLoaderPresentationAdapter.swift in Sources */,
 				F1B5C01E2AD7177200FBE37D /* FeedImageeDataLoaderPresentationAdapter.swift in Sources */,
-				F1F6D45F2ACB259E00ED146E /* FeedImagePresenter.swift in Sources */,
 				F15ECA082A7C01CB00983D86 /* FeedViewController.swift in Sources */,
 				F17758BD2A8C15930010FAD4 /* FeedImageCell.swift in Sources */,
-				F12FD51F2AA63EB000829177 /* FeedImageViewModel.swift in Sources */,
 				F1B5C0162AD7163C00FBE37D /* MainQueueDecorator.swift in Sources */,
 				F14FB5422AD1B722003A2C5C /* UIImageView+Animations.swift in Sources */,
 				F1530FF82AA06F35003748C2 /* FeedImageCellController.swift in Sources */,
@@ -823,10 +821,12 @@
 				F17032052A06FE3700F7C6BB /* RemoteFeedItem.swift in Sources */,
 				F1DD5CFA2A1BD39600CBB60A /* CodableFeedStore.swift in Sources */,
 				F1D786792A1156A700B41A01 /* FeedCachePolicy.swift in Sources */,
+				F11A5F112AE99E2000B6950F /* FeedImageViewModel.swift in Sources */,
 				F11A5F0C2AE999B400B6950F /* FeedPresenter.swift in Sources */,
 				F1E2534029D740BE0070B37E /* FeedImage.swift in Sources */,
 				F1C71DBF2A2D969E0015A5A8 /* ManagedFeedImage.swift in Sources */,
 				F1286B2E2A0425A5006C6FE2 /* LocalFeedLoader.swift in Sources */,
+				F11A5F122AE99E2400B6950F /* FeedImagePresenter.swift in Sources */,
 				F1E2532A29D740A90070B37E /* EssentialFeed.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
